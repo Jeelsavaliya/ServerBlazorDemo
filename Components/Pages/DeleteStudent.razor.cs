@@ -11,7 +11,9 @@ namespace ServerBlazorDemo.Components.Pages
         [Inject]
         NavigationManager navigationManager { get; set; }
 
-        public Student student { get; set; } = new();
+        [Parameter]
+        public Student student { get; set; }
+
 
         protected async Task Delete()
         {
@@ -22,6 +24,7 @@ namespace ServerBlazorDemo.Components.Pages
 
         protected void Back()
         {
+            StateHasChanged();
             navigationManager.NavigateTo("/student-list");
         }
 

@@ -27,14 +27,16 @@
                 <td>@std.City</td>
                 <td>
                     <button class="btn btn-primary">Update</button>
-               
-                    <button class="btn btn-danger" @onclick="DeleteStd">Delete</button>
+
+                    <button class="btn btn-danger" @onclick="() => DeleteStd(std)">Delete</button>
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
-<DeleteStudent></DeleteStudent>
-
+@if (StateConferm)
+{
+    <DeleteStudent student="@student"></DeleteStudent>
+}
 

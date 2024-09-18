@@ -15,11 +15,12 @@ namespace ServerBlazorDemo.Components.Pages
 
         public List<Student> students { get; set; } = new List<Student>();
 
+        public Student student = new();
+
         protected override async Task OnInitializedAsync()
         {
             students = await studentService.GetAllStudentsAsync();
             StateHasChanged();
-            
         }
 
         protected void AddStd()
@@ -28,10 +29,10 @@ namespace ServerBlazorDemo.Components.Pages
             navigationManager.NavigateTo("/add-student");
         }
 
-        protected void DeleteStd()
+        public void DeleteStd(Student students)
         {
+            student = students;
             StateConferm = true;
-            StateHasChanged();
         }
     }
 }
