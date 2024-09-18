@@ -1,0 +1,40 @@
+﻿@page "/student-list"
+<h3>StudentList</h3>
+
+<button class="btn btn-primary" @onclick="AddStd">Add Student</button>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Standared</th>
+            <th>Adderess</th>
+            <th>City</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var std in students)
+        {
+            <tr>
+                <td>@std.Id</td>
+                <td>@std.FirstName</td>
+                <td>@std.LastName</td>
+                <td>@std.Std</td>
+                <td>@std.Address</td>
+                <td>@std.City</td>
+                <td>
+                    <button class="btn btn-primary">Update</button>
+               
+                    <button class="btn btn-danger" @onclick="DeleteStd">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<DeleteStudent></DeleteStudent>
+
+
